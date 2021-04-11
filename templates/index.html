@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Find The price  Of Your Used Car Now!!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+body,h1 {font-family: "Raleway", sans-serif; color:rgba(255, 0, 0, 0.87); font-weight: bold; }
+body, html {height: 100% }
+form{ color:rgb(255, 255, 255);}
+</style>
+<body style="background-image: url('https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2900&q=80'); background-size: cover; margin-left: 5%; border:1px solid black;">
+ <div class="login">
+  <h1>Price of your Used Cars</h1>
+
+    <div class="Variables">
+    <form action="{{ url_for('predict')}}"method="post">
+
+    
+    <label>Manufactured Year</label>
+    <input type="number" name="year" placeholder="year" required="required" min="1996" max="2021"/>
+    <label>MPG</label>
+    <input type="number" name="mpg" placeholder="mpg" required="required" required="required" step="0.1" min="0.3" max="200" />
+
+
+    <label>Fuel Type</label>
+    <select id = "fuelType" name = fuelType >
+        <option value = "Diesel">Diesel</option>
+        <option value = "Petrol">Petrol</option>
+        <option value = "Hybrid">Hybrid</option>
+        <option value = "other">other</option>
+    </select>
+    <br>
+    <br>
+    <label>Transmission</label>
+    <select id = "transmission" name = transmission>
+    <option value = "Manual">Manual</option>
+    <option value = "Automatic">Automatic</option>
+    <option value = "semiAutomatic">SemiAuto</option>
+    </select>
+    <label>EngineSize</label>
+    <input type="number" name="engineSize" placeholder="engineSize" required="required" step="0.1" min="0.0" max="3.2"/>
+    <label>Tax</label>
+    <input type="number" name="tax" placeholder="tax" required="required" step="0.1" min="1.0" max="580.0"/>
+
+    <label>Mileage</label>
+    <input type="number" name="mileage" placeholder="mileage" required="required" step="0.1" min="1.0" max="212000.0"/>
+</div>
+    <br>
+   <br>
+    <div>
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict The Price</button>
+    </div>
+
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+ <!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Thanks to <a href="https://www.linkedin.com/in/sourav-srv-bhattacharyya-7969a380/">Sourav Bhattacharyya</a></p>
+  <p> <a href="https://github.com/BashitaliShaikh">Github</a></p>
+  <p><a href="https://www.linkedin.com/in/bashitali-shaikh-3b590616a/"><i class="fab fa-github fa-lg contact-icon" style="color:rgb(255, 235, 57) !important"></i>LinkedIn </a></p>
+  <p class='footer-description'>Made with ❤️ by Bashit Ali Shaikh.</p>
+  <div class="contact" >
+    <a target="_blank" href="https://www.linkedin.com/in/bashitali-shaikh-3b590616a/"><i class="fab fa-linkedin fa-lg contact-icon" style="color:rgb(239, 252, 62) !important"></i></a>
+    <a target="_blank" href="https://github.com/BashitaliShaikh"><i class="fab fa-github fa-lg contact-icon" style="color:rgb(255, 235, 57) !important"></i></a>
+</div>
+
+
+</body>
+</html>
